@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "onoff": "^5.0.1"
+    "rpio": "^2.1.1"
   }
 }

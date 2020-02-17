@@ -1,43 +1,26 @@
-const Gpio = require('onoff').Gpio;
+const rpio = require('rpio');
 
-// Use GPIO pinsinput, and 'both' button presses, and releases should be handled
-const upInput = new Gpio(17, 'in', 'both');
-const downInput = new Gpio(31, 'in', 'both');
-
-//function to run when exiting program
-const unexportOnClose = () => {
-  // Unexport Button GPIO to free resources
-  upInput.unexport();
-  downInput.unexport();
+const options = {
+  gpiomem: true,          /* Use /dev/gpiomem */
+  mapping: 'physical',    /* Use the P1-P40 numbering scheme */
+  mock: undefined,        /* Emulate specific hardware in mock mode */
 };
 
-// Watch for hardware interrupts on pushButton GPIO, specify callback function
-const upWatcher =  (err, value) => {
-  if (err) {
-    console.error('There was an error', err);
-    return;
-  }
-  console.log('upWatcher activated', value);
-};
+rpio.init(options);
 
-const downWatcher =  (err, value) => {
-  if (err) {
-    console.error('There was an error', err);
-    return;
-  }
-  console.log('downWatcher activated', value);
-};
-
-console.log('gpio-connect: accessibility = ', Gpio.accessible);
-try {
-  process.on('SIGINT', unexportOnClose); //function to run when user closes using ctrl+c
-  upInput.watch(upWatcher);
-  downInput.watch(downWatcher)
-} catch (e) {
-  console.log(e);
-};
+rpio.open(31, rpio.INPUT);
+rpio.open(32, rpio.INPUT);
 
 
+rpio.poll(31, down);
+rpio.poll(32, up);
 
+function up() {
+  console.log('up');
+}
+
+function down() {
+  console.log('down');
+}
 
 
