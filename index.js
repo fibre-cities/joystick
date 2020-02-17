@@ -1,1 +1,2 @@
-require ('./gpio-connect');
+// require ('./gpio-connect');
+require ('./keyboard-connect');
