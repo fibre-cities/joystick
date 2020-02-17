@@ -22,5 +22,3 @@ function up() {
 function down() {
   console.log('down');
 }
-
-
