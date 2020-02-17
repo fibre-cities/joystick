@@ -1,8 +1,8 @@
 // from https://www.w3schools.com/nodejs/nodejs_raspberrypi_led_pushbutton.asp
 
 const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
-const up = new Gpio(32, 'in', 'both');
-const down = new Gpio(31, 'in', 'both');
+const up = new Gpio(26, 'in', 'both');
+const down = new Gpio(22, 'in', 'both');
 
 const upHandler = (err, value) => {
   if (err) {
