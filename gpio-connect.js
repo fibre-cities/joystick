@@ -1,7 +1,7 @@
 const Gpio = require('onoff').Gpio;
 
 // Use GPIO pinsinput, and 'both' button presses, and releases should be handled
-const upInput = new Gpio(32, 'in', 'both');
+const upInput = new Gpio(17, 'in', 'both');
 const downInput = new Gpio(31, 'in', 'both');
 
 //function to run when exiting program
