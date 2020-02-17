@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "rpio": "^2.1.1"
+    "input-event": "^1.2.6"
   }
 }

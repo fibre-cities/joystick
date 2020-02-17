@@ -1,24 +1,9 @@
-const rpio = require('rpio');
+var InputEvent = require('input-event');
 
-const options = {
-  gpiomem: true,          /* Use /dev/gpiomem */
-  mapping: 'physical',    /* Use the P1-P40 numbering scheme */
-  mock: undefined,        /* Emulate specific hardware in mock mode */
-};
+var input = new InputEvent('/dev/input/event0');
 
-rpio.init(options);
+var keyboard = new InputEvent.Keyboard(input);
 
-rpio.open(31, rpio.INPUT);
-rpio.open(32, rpio.INPUT);
-
-
-rpio.poll(31, down);
-rpio.poll(32, up);
-
-function up() {
-  console.log('up');
-}
-
-function down() {
-  console.log('down');
-}
+keyboard.on('keyup'   , console.log);
+keyboard.on('keydown' , console.log);
+keyboard.on('keypress', console.log);
