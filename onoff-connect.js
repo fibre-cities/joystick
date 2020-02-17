@@ -1,7 +1,7 @@
 // from https://www.w3schools.com/nodejs/nodejs_raspberrypi_led_pushbutton.asp
 
 const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
-const up = new Gpio(6, 'in', 'both', , {debounceTimeout: 50});
+const up = new Gpio(6, 'in', 'both',  {debounceTimeout: 50});
 const down = new Gpio(12, 'in', 'both', {debounceTimeout: 50});
 
 const upHandler = (err, value) => {
