@@ -25,7 +25,7 @@ const onoffConnect = (onUp, onDown, onStop) => {
     }
     console.info('onoffConnect downHandler', value);
     if (value === 0) {
-      onUp();
+      onDown();
     }
     if (value === 1) {
       onStop();
