@@ -41,5 +41,5 @@ const onoffConnect = (onUp, onDown, onStop) => {
   process.on('SIGINT', unexportOnClose); //function to run when user closes using ctrl+c
 };
 
-export default onoffConnect;
+module.exports = onoffConnect;
 
