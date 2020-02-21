@@ -25,10 +25,15 @@ http.listen(port, function(){
   });
 
   clientSocket.on('connect', onConnect);
-
+  clientSocket.on('error', onError);
 
   function onConnect() {
+    console.info('connect');
     onoffConnect(paddleUp, paddleDown, paddleStop);
+  }
+
+  function onError(err) {
+    console.error(err);
   }
 
   function paddleUp() {
