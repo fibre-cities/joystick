@@ -6,6 +6,8 @@ const client  = require('socket.io-client');
 
 const onoffConnect = require('./onoff-connect');
 
+require('./rpio-connect');
+
 global.__basedir = __dirname;
 
 const app = require('express')();
