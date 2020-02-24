@@ -28,7 +28,6 @@ http.listen(port, function(){
   clientSocket.on('error', onError);
 
   function onConnect() {
-    console.info('connect');
     onoffConnect(paddleUp, paddleDown, paddleStop);
   }
 
@@ -37,17 +36,17 @@ http.listen(port, function(){
   }
 
   function paddleUp() {
-    console.info('Emitting moveUp');
+    console.info('moveUp');
     clientSocket.emit('moveUp', city);
   };
 
   function paddleDown() {
-    console.info('Emitting moveDown');
+    console.info('moveDown');
     clientSocket.emit('moveDown', city);
   };
 
   function paddleStop() {
-    console.info('Emitting stop');
+    console.info('stop');
     clientSocket.emit('stop', city);
   };
 });
