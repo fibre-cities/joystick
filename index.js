@@ -30,6 +30,7 @@ http.listen(port, function(){
   clientSocket.on('error', onError);
 
   function onConnect() {
+    console.log('connection succesfull');
     onoffConnect(paddleUp, paddleDown, paddleStop);
   }
 

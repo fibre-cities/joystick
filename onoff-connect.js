@@ -2,7 +2,6 @@
 const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 
 const onoffConnect = (onUp, onDown, onStop) => {
-  console.info('onoffConnect');
   // const up = new Gpio(6, 'in', 'both',  {debounceTimeout: 50});
   const up = new Gpio(6, 'in', 'both');
   // const down = new Gpio(12, 'in', 'both', {debounceTimeout: 50});
@@ -43,6 +42,7 @@ const onoffConnect = (onUp, onDown, onStop) => {
   };
 
   process.on('SIGINT', unexportOnClose); //function to run when user closes using ctrl+c
+  console.log('onoff GPIO successfully initialised');
 };
 
 module.exports = onoffConnect;
