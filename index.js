@@ -15,6 +15,7 @@ const host = process.env.HOST;
 const city = process.env.CITY;
 
 http.listen(port, function(){
+  let time;
   console.info('joystick listening on **:' + port);
   const nameSpaceConnectionString = `${host}/city-${city}`;
   console.info('nameSpaceConnectionString', nameSpaceConnectionString);
@@ -25,10 +26,15 @@ http.listen(port, function(){
   });
 
   clientSocket.on('connect', onConnect);
+  clientSocket.on('callback', onCallback);
   clientSocket.on('error', onError);
 
   function onConnect() {
     onoffConnect(paddleUp, paddleDown, paddleStop);
+  }
+
+  function onCallback() {
+    console.log('callback', Date.now - time);
   }
 
   function onError(err) {
@@ -37,6 +43,7 @@ http.listen(port, function(){
 
   function paddleUp() {
     console.info('moveUp');
+    time = Date.now();
     clientSocket.emit('moveUp', city);
   };
 
