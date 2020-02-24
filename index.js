@@ -35,7 +35,7 @@ http.listen(port, function(){
   }
 
   function onCallback(data) {
-    console.log('callback', Date.now - time, data);
+    console.log('callback', Date.now() - time, data);
   }
 
   function onError(err) {
