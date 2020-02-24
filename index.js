@@ -33,8 +33,8 @@ http.listen(port, function(){
     onoffConnect(paddleUp, paddleDown, paddleStop);
   }
 
-  function onCallback() {
-    console.log('callback', Date.now - time);
+  function onCallback(data) {
+    console.log('callback', Date.now - time, data);
   }
 
   function onError(err) {
