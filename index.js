@@ -16,7 +16,7 @@ const city = process.env.CITY;
 
 http.listen(port, function(){
   console.info('joystick listening on **:' + port);
-  const nameSpaceConnectionString = `${host}${city}`;
+  const nameSpaceConnectionString = `${host}/city-${city}`;
   console.info('nameSpaceConnectionString', nameSpaceConnectionString);
   const clientSocket = client.connect(nameSpaceConnectionString, {
     query: {city, role: 'joystick'},
